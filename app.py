@@ -53,7 +53,6 @@ def precipitation():
 
     
     
-
 @app.route("/api/v1.0/stations")
 def stations(): 
     stations =  session.query(Measurement.station).group_by(Measurement.station).all()
@@ -62,11 +61,10 @@ def stations():
 
     return jsonify(stations_list)
 
+
+
 @app.route("/api/v1.0/tobs")
 def tobs(): 
-   
-
-    
     latest_date = session.query(Measurement.date).order_by(Measurement.date.desc()).first()
 
     # Get the first element of the tuple
