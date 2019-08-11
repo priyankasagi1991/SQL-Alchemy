@@ -40,8 +40,6 @@ def precipitation():
     # Get the first element of the tuple
     latest_date = latest_date[0]
 
-    # Calculate the date 1 year ago 
-    # The days are equal 366 so that the first day of the year is included
     year_ago = dt.datetime.strptime(latest_date, "%Y-%m-%d") - dt.timedelta(days=366)
     
     # Perform a query to retrieve the data and precipitation scores
