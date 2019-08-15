@@ -37,7 +37,6 @@ def welcome():
 def precipitation():  
     latest_date = session.query(Measurement.date).order_by(Measurement.date.desc()).first()
 
-    # Get the first element of the tuple
     latest_date = latest_date[0]
 
     year_ago = dt.datetime.strptime(latest_date, "%Y-%m-%d") - dt.timedelta(days=366)
@@ -65,8 +64,8 @@ def stations():
 def tobs(): 
     latest_date = session.query(Measurement.date).order_by(Measurement.date.desc()).first()
 
-    # Get the first element of the tuple
     latest_date = latest_date[0]
+    
     year_ago = dt.datetime.strptime(latest_date, "%Y-%m-%d") - dt.timedelta(days=366)
     # Query tobs
     tobs = session.query(Measurement.date, Measurement.tobs).filter(Measurement.date >= year_ago).all()
